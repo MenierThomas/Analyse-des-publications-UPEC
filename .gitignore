@@ -3,3 +3,7 @@ __pycache__/
 env/
 db.sqlite3
 .DS_Store
+myapp/__pycache__/
+myapp/migrations/__pycache__/
+myapp/pyspark_ai.zip
+db.sqlite
