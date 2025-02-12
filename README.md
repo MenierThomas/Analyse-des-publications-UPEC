@@ -51,13 +51,13 @@ Cette section décrit les fichiers et l'arborescence liés au modèle d'IA pour 
 ### Arborescence du fichier ZIP
 
 ```
-dossier_ia/
+ia/
 ├── domaine.csv                  # Oracle de transcription entre les domaines de recherche HAL et le Panel ERC
 ├── date_propre.csv                 # Base de données sous format CSV
-└── date_propre       # Base de données sous format Google Sheets
+├── date_propre       # Base de données sous format Google Sheets
 ├── erc_panel_predictor.joblib   # Modèle d'IA entraîné pour la prédiction des domaines ERC
 ├── mlb.joblib               # Transforme les étiquettes multilabel en représentation binaire
-└── tfidf.joblib             # Module de vectorisation TF-IDF pour le modèle
+├── tfidf.joblib             # Module de vectorisation TF-IDF pour le modèle
 ├── ERC.ipynb                # Notebook Jupyter pour l'entraînement du modèle
 ├── publications_with_predicted_erc.csv          # Prédictions des domaines ERC au format CSV
 └── publications_with_predicted_erc # Prédictions des domaines ERC au format Google Sheets
