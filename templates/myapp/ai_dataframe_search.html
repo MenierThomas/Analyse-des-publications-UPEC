@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI DataFrame Search</title>
+</head>
+<body>
+    <h1>AI-Powered DataFrame Search</h1>
+
+    <!-- Search Bar -->
+    <form method="GET" action="{% url 'ai_dataframe_search' %}">
+        <label for="query">Enter Search Query:</label>
+        <input type="text" id="query" name="query" value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+        <h2>Generated DataFrame</h2>
+        <table border="1">
+            <tr>
+                {% for column in results.0.keys %}
+                <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in results %}
+            <tr>
+                {% for value in row.values %}
+                <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>

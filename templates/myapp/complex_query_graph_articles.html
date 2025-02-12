@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Query Graph - Articles Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .graph-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+            border: 2px solid #ddd;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .error {
+            color: red;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Complex Query Graph - Articles Database</h1>
+
+    {% if graph %}
+        <div class="graph-container">
+            <img src="data:image/png;base64,{{ graph }}" alt="Complex Query Graph">
+        </div>
+    {% elif error %}
+        <p class="error">{{ error }}</p>
+    {% else %}
+        <p class="error">No data available for the graph.</p>
+    {% endif %}
+
+</body>
+</html>

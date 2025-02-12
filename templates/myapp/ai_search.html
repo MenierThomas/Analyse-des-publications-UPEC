@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Search</title>
+</head>
+<body>
+    <h1>AI-Powered Article Search</h1>
+
+    <!-- Search Bar -->
+    <form method="GET" action="{% url 'ai_search' %}">
+        <label for="query">Search Articles:</label>
+        <input type="text" id="query" name="query" value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if graph %}
+        <h2>Search Results for "{{ query }}"</h2>
+        <img src="data:image/png;base64,{{ graph }}" alt="Search Graph">
+    {% endif %}
+
+    {% if results %}
+        <h2>Articles Found</h2>
+        <table border="1">
+            <tr>
+                <th>Title</th>
+                <th>Abstract</th>
+                <th>Topic</th>
+                <th>Publication Date</th>
+            </tr>
+            {% for article in results %}
+            <tr>
+                <td>{{ article.title }}</td>
+                <td>{{ article.abstract }}</td>
+                <td>{{ article.topic }}</td>
+                <td>{{ article.publication_date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+
+        <!-- Download Options -->
+        <a href="{% url 'export_csv' %}?query={{ query }}">
+            <button>Download CSV</button>
+        </a>
+
+        <a href="{% url 'download_images' %}?query={{ query }}">
+            <button>Download Images (ZIP)</button>
+        </a>
+    {% endif %}
+</body>
+</html>

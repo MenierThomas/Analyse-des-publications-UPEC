@@ -1,9 +1,25 @@
 *.pyc
 __pycache__/
+pyspark_env/
 env/
 db.sqlite3
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+db.sqlite
+articles.sqlite
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 .DS_Store
 myapp/__pycache__/
 myapp/migrations/__pycache__/
 myapp/pyspark_ai.zip
+<<<<<<< Updated upstream
 db.sqlite
+=======
+<<<<<<< Updated upstream
+db.sqlite
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes

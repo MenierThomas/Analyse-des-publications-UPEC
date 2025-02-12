@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Query Search</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input { width: 60%; padding: 10px; margin: 10px 0; }
+        button { padding: 10px 15px; background: blue; color: white; border: none; cursor: pointer; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        img { margin-top: 20px; max-width: 100%; }
+        .pagination { list-style-type: none; padding: 0; }
+        .pagination li { display: inline; margin: 5px; }
+        .pagination a { text-decoration: none; padding: 5px 10px; background-color: #f0f0f0; border-radius: 5px; }
+        .pagination a:hover { background-color: #ccc; }
+    </style>
+</head>
+<body>
+
+    <h2>🔍 SQL Query Search</h2>
+
+    <form method="GET">
+        <input type="text" name="query" placeholder="Enter your SQL query..." value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+        <h3>📊 Results</h3>
+
+        <a href="{% url 'download_csv' %}?query={{ query }}">
+            <button>Download CSV</button>
+        </a>
+
+        <table>
+            <thead>
+                <tr>
+                    {% for col in results.0.keys %}
+                        <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                    <tr>
+                        {% for col, value in row.items %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?query={{ query }}&page=1">&laquo; first</a>
+                <a href="?query={{ query }}&page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+            {% if page_obj.has_next %}
+                <a href="?query={{ query }}&page={{ page_obj.next_page_number }}">next</a>
+                <a href="?query={{ query }}&page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </div>
+    {% endif %}
+
+</body>
+</html>
