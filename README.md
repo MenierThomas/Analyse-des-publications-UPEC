@@ -44,11 +44,11 @@ Les données analysées, incluant les métriques de vitesse de traitement PySpar
 - **`scraping.py`** : Ce script permet d'extraire les données de la base de données et de les sauvegarder dans `ressources/data/raw_data.csv`.
 - **`analyse_pyspark.py`** : Ce script utilise PySpark pour analyser les données et générer les graphiques de performance. Les résultats sont sauvegardés dans `ressources/data/analysed_data.csv`.
 
-### Intelligence Artificielle : Prédiction des Domaines de Recherche
+## Intelligence Artificielle : Prédiction des Domaines de Recherche
 
 Cette section décrit les fichiers et l'arborescence liés au modèle d'IA pour la prédiction des domaines de recherche spécifiques à HAL vers le Panel ERC.
 
-#### Arborescence du fichier ZIP
+### Arborescence du fichier ZIP
 
 ```
 dossier_ia/
