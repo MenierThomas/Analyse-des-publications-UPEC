@@ -39,11 +39,57 @@ Pour ce projet, 2 methodes différents ont été réalisés pour crée la base d
 Les données analysées, incluant les métriques de vitesse de traitement PySpark, sont disponibles dans `ressources/data/analysed_data.csv`.
 
 
-
 ## Scripts
 
 - **`scraping.py`** : Ce script permet d'extraire les données de la base de données et de les sauvegarder dans `ressources/data/raw_data.csv`.
 - **`analyse_pyspark.py`** : Ce script utilise PySpark pour analyser les données et générer les graphiques de performance. Les résultats sont sauvegardés dans `ressources/data/analysed_data.csv`.
+
+### Intelligence Artificielle : Prédiction des Domaines de Recherche
+
+Cette section décrit les fichiers et l'arborescence liés au modèle d'IA pour la prédiction des domaines de recherche spécifiques à HAL vers le Panel ERC.
+
+#### Arborescence du fichier ZIP
+
+```
+dossier_ia/
+├── domaine.csv                  # Oracle de transcription entre les domaines de recherche HAL et le Panel ERC
+├── date_propre/                 # Dossier contenant la base de données nettoyée
+│   ├── data.csv                 # Base de données sous format CSV
+│   └── data_google_sheets       # Base de données sous format Google Sheets
+├── erc_panel_predictor.joblib   # Modèle d'IA entraîné pour la prédiction des domaines ERC
+├── modules/                     # Modules nécessaires pour utiliser le modèle d'IA
+│   ├── mlb.joblib               # Transforme les étiquettes multilabel en représentation binaire
+│   └── tfidf.joblib             # Module de vectorisation TF-IDF pour le modèle
+├── Model Domains/               # Dossier contenant le notebook d'entraînement du modèle
+│   └── ERC.ipynb                # Notebook Jupyter pour l'entraînement du modèle
+└── publications_with_predicted_erc/  # Dossier contenant les prédictions du modèle
+    ├── predictions.csv          # Prédictions des domaines ERC au format CSV
+    └── predictions_google_sheets # Prédictions des domaines ERC au format Google Sheets
+``` 
+
+Description des Fichiers
+
+`domaine.csv` :
+    Ce fichier sert d'oracle de transcription entre les domaines de recherche spécifiques à HAL et les domaines du Panel ERC. Il est utilisé pour mapper les domaines de HAL vers les catégories ERC.
+
+
+`date_propre.csv` : Fichier CSV contenant les données nettoyées.
+
+`data_google_sheets` : Lien vers la même base de données dans Google Sheets.
+
+`erc_panel_predictor.joblib` :
+    Ce fichier contient le modèle d'IA entraîné pour prédire les domaines du Panel ERC à partir des domaines de recherche HAL.
+
+`mlb.joblib` : Transforme les étiquettes multilabel en une représentation binaire.
+
+`tfidf.joblib` : Module de vectorisation TF-IDF utilisé pour prétraiter les données textuelles.
+
+`Model Domains/ERC.ipynb` :
+    Ce notebook Jupyter contient le code utilisé pour l'entraînement du modèle. Il inclut les étapes de prétraitement des données, d'entraînement du modèle et d'évaluation des performances.
+
+`publications_with_predicted_erc.csv` : Fichier CSV contenant les prédictions des domaines ERC.
+
+`publications_with_predicted_erc` : Lien vers les mêmes prédictions dans Google Sheets.
 
 ## Graphiques
 
