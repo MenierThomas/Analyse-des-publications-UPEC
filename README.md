@@ -53,18 +53,14 @@ Cette section décrit les fichiers et l'arborescence liés au modèle d'IA pour 
 ```
 dossier_ia/
 ├── domaine.csv                  # Oracle de transcription entre les domaines de recherche HAL et le Panel ERC
-├── date_propre/                 # Dossier contenant la base de données nettoyée
-│   ├── data.csv                 # Base de données sous format CSV
-│   └── data_google_sheets       # Base de données sous format Google Sheets
+├── date_propre.csv                 # Base de données sous format CSV
+└── date_propre       # Base de données sous format Google Sheets
 ├── erc_panel_predictor.joblib   # Modèle d'IA entraîné pour la prédiction des domaines ERC
-├── modules/                     # Modules nécessaires pour utiliser le modèle d'IA
-│   ├── mlb.joblib               # Transforme les étiquettes multilabel en représentation binaire
-│   └── tfidf.joblib             # Module de vectorisation TF-IDF pour le modèle
-├── Model Domains/               # Dossier contenant le notebook d'entraînement du modèle
-│   └── ERC.ipynb                # Notebook Jupyter pour l'entraînement du modèle
-└── publications_with_predicted_erc/  # Dossier contenant les prédictions du modèle
-    ├── predictions.csv          # Prédictions des domaines ERC au format CSV
-    └── predictions_google_sheets # Prédictions des domaines ERC au format Google Sheets
+├── mlb.joblib               # Transforme les étiquettes multilabel en représentation binaire
+└── tfidf.joblib             # Module de vectorisation TF-IDF pour le modèle
+├── ERC.ipynb                # Notebook Jupyter pour l'entraînement du modèle
+├── publications_with_predicted_erc.csv          # Prédictions des domaines ERC au format CSV
+└── publications_with_predicted_erc # Prédictions des domaines ERC au format Google Sheets
 ``` 
 
 Description des Fichiers
@@ -75,7 +71,7 @@ Description des Fichiers
 
 `date_propre.csv` : Fichier CSV contenant les données nettoyées.
 
-`data_google_sheets` : Lien vers la même base de données dans Google Sheets.
+`data_google_sheets` : fichier vers la même base de données au format Google Sheets.
 
 `erc_panel_predictor.joblib` :
     Ce fichier contient le modèle d'IA entraîné pour prédire les domaines du Panel ERC à partir des domaines de recherche HAL.
@@ -89,7 +85,7 @@ Description des Fichiers
 
 `publications_with_predicted_erc.csv` : Fichier CSV contenant les prédictions des domaines ERC.
 
-`publications_with_predicted_erc` : Lien vers les mêmes prédictions dans Google Sheets.
+`publications_with_predicted_erc` : fichier avec les mêmes prédictions dans Google Sheets.
 
 ## Graphiques
 
