@@ -2,11 +2,18 @@
 
 ![Logo Hal](ressources/images/hal_logo.png)
 
-Ce projet vise à analyser les publications de l'UPEC enregistrées sur [la plateforme HAL](https://hal.science/)
-en utilisant PySpark pour le traitement des données. Il inclut également des scripts de scraping pour collecter les données, ainsi que des graphiques et rapports générés à partir de l'analyse de ses données.
+Ce projet universitaire vise à analyser les publications de l'UPEC enregistrées sur [la plateforme HAL](https://hal.science/)
+en utilisant PySpark pour le traitement des données. Il inclut également des scripts de scraping pour collecter et crée la base de donnée, ainsi que des graphiques et rapports générés à partir de l'analyse de ses données.
 
-## Structure du Projet
+Ce git se présente sous la forme d'une application web utilisant le framework django. L’application web inclut les fonctionnalités suivantes :
 
+• Recherche par langage naturel : Permettant aux utilisateurs d’interroger la base de données de manière intuitive (utilisation de la librairie [py-sparkai](https://spark.apache.org/docs/latest/api/python/index.html))
+
+• Affichage des résultats de classification : Présentation
+des publications avec les domaines de publications correspondants avec classification dynamique ERC par IA.
+
+• Exportation des résultats : Possibilité d’exporter les
+résultats en format CSV pour une utilisation ulterieure
 ## Dossier ressource
 
 Voici une description du dossier ressources, où sont indiqués les données produites et manipulés ainsi que des exemples et traces d'utilisation.
